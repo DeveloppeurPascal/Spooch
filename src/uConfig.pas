@@ -76,14 +76,14 @@ begin
 {$IFDEF DEBUG}
 {$IF Defined(IOS) or Defined(ANDROID)}
   DossierParDefaut := tpath.combine(tpath.combine(tpath.GetPicturesPath,
-    'OlfSoftware'), 'Spooch');
+    'Gamolf-debug'), 'Spooch-debug');
 {$ELSE}
   DossierParDefaut := tpath.combine(tpath.combine(tpath.GetDocumentsPath,
-    'OlfSoftware'), 'Spooch');
+    'Gamolf-debug'), 'Spooch-debug');
 {$ENDIF}
 {$ELSE}
   DossierParDefaut := tpath.combine(tpath.combine(tpath.GetPicturesPath,
-    'OlfSoftware'), 'Spooch');
+    'Gamolf'), 'Spooch');
 {$ENDIF}
   result := tParams.getValue(CCheminPartageCapturesEcran, DossierParDefaut);
   if not TDirectory.Exists(result) then
