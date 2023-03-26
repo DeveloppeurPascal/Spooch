@@ -145,6 +145,10 @@ type
     lblHallOfFame: TLabel;
     ShadowEffect5: TShadowEffect;
     lstScores: TListView;
+    lblEffetsVisuels: TLabel;
+    ShadowEffect6: TShadowEffect;
+    OptionsEffetsVisuels: TLayout;
+    swEffetsVisuels: TSwitch;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure BoucleDuJeuTimer(Sender: TObject);
@@ -164,6 +168,7 @@ type
     procedure btnEcranCreditsFermerClick(Sender: TObject);
     procedure btnEcranFinDePartieFermerClick(Sender: TObject);
     procedure btnEcranHallOfFameFermerClick(Sender: TObject);
+    procedure swEffetsVisuelsSwitch(Sender: TObject);
   private
     FLigneAfficheeDuBasDuBackground: single;
     FVitesseDuBackground: single;
@@ -323,7 +328,7 @@ var
 begin
   EcranHallOfFame.Visible := true;
   EcranHallOfFame.BringToFront;
-  listedesscores.SortByPointsDesc;
+  ListeDesScores.SortByPointsDesc;
   lstScores.Items.Clear;
   for i := 0 to ListeDesScores.count - 1 do
   begin
@@ -343,6 +348,7 @@ begin
   swBruitages.IsChecked := tconfig.BruitagesOnOff;
   tbBruitages.Visible := tconfig.BruitagesOnOff;
   tbBruitages.Value := tconfig.BruitagesVolume;
+  swEffetsVisuels.IsChecked := tconfig.EffetsVisuelsOnOff;
   AjusteHauteurZoneDeContenu(EcranReglagesContenu);
 end;
 
@@ -633,7 +639,6 @@ begin
   // Enregistre le nouvel écran
   FEcranActuel := Value;
   // Initialise et affiche le nouvel écran
-  // TODO : gérer les affichages des différents écrans
   case FEcranActuel of
     TListeEcrans.Menu:
       AffichageEcranDuMenu;
@@ -727,6 +732,11 @@ begin
   else
     CouperLesBruitages;
   tconfig.BruitagesOnOff := swBruitages.IsChecked;
+end;
+
+procedure tfrmMain.swEffetsVisuelsSwitch(Sender: TObject);
+begin
+  tconfig.EffetsVisuelsOnOff := swEffetsVisuels.IsChecked;
 end;
 
 procedure tfrmMain.swMusiqueSwitch(Sender: TObject);
