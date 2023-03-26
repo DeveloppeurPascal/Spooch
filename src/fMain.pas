@@ -323,6 +323,7 @@ var
 begin
   EcranHallOfFame.Visible := true;
   EcranHallOfFame.BringToFront;
+  listedesscores.SortByPointsDesc;
   lstScores.Items.Clear;
   for i := 0 to ListeDesScores.count - 1 do
   begin
