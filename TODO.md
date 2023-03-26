@@ -37,3 +37,12 @@
 * image d'explosion sans crédit (opengameart.org), vérifier de qui c'est ou la remplacer
 
 * trier la liste des scores en score descendants avant affichage sur l'écran "hall of fame"
+
+* basculer sur Olf.RTL.Params au lieu de uParams
+* mettre à jour u_scores depuis les librairies sur GitHub et/ou changer son format en Gamolf.RTL.Scores sur le dépôt FMXGameEngine
+* revoir l'arborescence de stockage des paramètres du jeu
+* revoir l'arborescence de stockage des scores
+* ajouter références à sa source sur uMusicLoop.pas et le mettre à jour s'il ne l'est pas et/ou changer son format en Gamolf.RTL.MusicLoop sur le dépôt FMXGameEngine (regrouper les bruitages et la musique d'ambiance)
+* traiter les TODO dans le code
+* ajouter un bouton de partage du score en fin de jeu lorsque ShareSheetActionService est supportée par FMX
+* générer les images pour les splashscreen iOS et les mettre dans le soptions de projet
