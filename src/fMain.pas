@@ -85,7 +85,6 @@ type
 {$SCOPEDENUMS OFF}
 
   tfrmMain = class(TForm)
-    imgBackground: trectangle;
     BoucleDuJeu: TTimer;
     background: TScaledLayout;
     Spritejoueur: trectangle;
@@ -206,6 +205,8 @@ type
     procedure AjusteHauteurZoneDeContenu(ZoneAAjuster: TLayout);
     procedure BoiteDeDialogueParDessus;
     procedure MigrateOldScoresFileToNewPath;
+  protected
+    imgBackground: trectangle;
   public
     { Déclarations publiques }
     MissileJoueurList: TMissileJoueurList;
@@ -228,7 +229,7 @@ implementation
 
 uses
   System.math, System.strutils, uMusic, uConfig, uBruitages, System.Threading,
-  Olf.RTL.Params, System.IOUtils;
+  Olf.RTL.Params, System.IOUtils, cImgSpaceBackground;
 
 procedure tfrmMain.btnCreditsDuJeuCanFocus(Sender: TObject;
   var ACanFocus: boolean);
@@ -416,6 +417,8 @@ begin
 end;
 
 procedure tfrmMain.FormCreate(Sender: TObject);
+var
+  imgBackgroundSrc: TcadImgSpaceBackground;
 begin
   ListeDesScores := TScoreList.Create('Gamolf', 'Spooch');
   MigrateOldScoresFileToNewPath;
@@ -438,6 +441,12 @@ begin
 
   // Paramétrage background et scroll infini
   background.Position.Point := pointf(0, 0);
+
+  // Get the (very big) Space Background picture from the TFrame and move it to Background layout on the main form
+  imgBackgroundSrc := TcadImgSpaceBackground.Create(self);
+  imgBackground := imgBackgroundSrc.imgBackground;
+  imgBackground.parent := background;
+  // Resize the picture depending of the screen size and game needs
   imgBackground.width := imgBackground.fill.Bitmap.Bitmap.width;
   background.OriginalWidth := imgBackground.width;
   imgBackground.height := imgBackground.fill.Bitmap.Bitmap.height +
