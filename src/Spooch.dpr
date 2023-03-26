@@ -8,8 +8,9 @@ uses
   uBruitages in 'uBruitages.pas',
   uConfig in 'uConfig.pas',
   uMusic in 'uMusic.pas',
-  u_scores in 'u_scores.pas',
-  Olf.RTL.Params in '..\lib-externes\librairies\Olf.RTL.Params.pas';
+  Olf.RTL.Params in '..\lib-externes\librairies\Olf.RTL.Params.pas',
+  u_scores in '..\lib-externes\FMXGameEngine\src\u_scores.pas',
+  Gamolf.RTL.Scores in '..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Scores.pas';
 
 {$R *.res}
 

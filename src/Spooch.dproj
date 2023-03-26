@@ -527,8 +527,9 @@
         <DCCReference Include="uBruitages.pas"/>
         <DCCReference Include="uConfig.pas"/>
         <DCCReference Include="uMusic.pas"/>
-        <DCCReference Include="u_scores.pas"/>
         <DCCReference Include="..\lib-externes\librairies\Olf.RTL.Params.pas"/>
+        <DCCReference Include="..\lib-externes\FMXGameEngine\src\u_scores.pas"/>
+        <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Scores.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
