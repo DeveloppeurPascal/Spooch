@@ -17,25 +17,28 @@
 
 
 * gérer option InterfaceTactileOnOff dans les réglages (pour écran Windows/Linux tactile sans clavier)
-* gérer option CheminPartageCapturesEcran
-* gérer option EffetsVisuelsOnOff
 
 
 * image d'explosion sans crédit (opengameart.org), vérifier de qui c'est ou la remplacer
+
 * générer les images pour les splashscreens iOS et les mettre dans le soptions de projet
+
+* gérer option CheminPartageCapturesEcran
 * en fin de partie, permettre de faire une capture d'écran+du score pour partage sur les réseaux sociaux ou enregistrement local
+* ajouter un bouton de partage du score en fin de jeu lorsque ShareSheetActionService est supportée par FMX
+
 * sur l'écran de fin de partie, faire saisir le pseudo de l'utilisateur et l'enregistrer
 
-
 * traiter les TODO dans le code
-* trier la liste des scores en score descendants avant affichage sur l'écran "hall of fame"
-* ajouter un bouton de partage du score en fin de jeu lorsque ShareSheetActionService est supportée par FMX
-* ajouter références à sa source sur uMusicLoop.pas et le mettre à jour s'il ne l'est pas et/ou changer son format en Gamolf.RTL.MusicLoop sur le dépôt FMXGameEngine (regrouper les bruitages et la musique d'ambiance)
-* mettre à jour u_scores depuis les librairies sur GitHub et/ou changer son format en Gamolf.RTL.Scores sur le dépôt FMXGameEngine
-* basculer sur Olf.RTL.Params au lieu de uParams
-* revoir l'arborescence de stockage des paramètres du jeu
-* revoir l'arborescence de stockage des scores
+
 * en démarrage de partie, virer les missiles existants à l'écran et éventuellement les vaisseaux ennemis
-* mettre à jour les crédits du jeu
 * ajouter un menu pour Windows/Mac quand on n'est pas en plein écran
 * ajouter une boite de dialogue "about"
+
+
+* animation trop sacadée sur macOS ARM en fonctionnement normal (vérifier hors stream et désactiver si correction injouble ou changer l'image de fond)
+
+
+* chercher un WAV pour mettre sur les On/Off de l'interface utilisateur (clic sur boutons de menu et les checkbox dans les options)
+
+* traduction des textes
