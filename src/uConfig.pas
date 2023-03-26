@@ -157,4 +157,14 @@ begin
   tParams.setValue(CMusiqueAmbianceVolume, Value);
 end;
 
+initialization
+
+{$IFDEF DEBUG}
+  tParams.setFolderName(tpath.combine(tpath.combine(tpath.GetDocumentsPath,
+  'Gamolf-debug'), 'Spooch-debug'));
+{$ELSE}
+  tParams.setFolderName(tpath.combine(tpath.combine(tpath.GetHomePath,
+  'Gamolf'), 'Spooch'));
+{$ENDIF}
+
 end.
