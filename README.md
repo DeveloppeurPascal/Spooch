@@ -26,6 +26,7 @@ To download this project you better should use "git" command but you also can do
 
 This project depends on :
 
+* [DeveloppeurPascal/FMXGameEngine](https://github.com/DeveloppeurPascal/FMXGameEngine) in the sub folder ./lib-externes/FMXGameEngine
 * [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) in the sub folder ./lib-externes/librairies
 
 ## How to ask a new feature, report a bug or a security issue ?
