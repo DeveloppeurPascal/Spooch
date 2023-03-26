@@ -225,7 +225,7 @@ implementation
 
 uses
   System.math, System.strutils, uMusic, uConfig, uBruitages, System.Threading,
-  uParam, u_scores;
+  u_scores, Olf.RTL.Params;
 
 procedure tfrmMain.btnCreditsDuJeuCanFocus(Sender: TObject;
   var ACanFocus: boolean);

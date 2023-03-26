@@ -42,7 +42,7 @@ type
 implementation
 
 uses
-  system.sysutils, system.IOUtils, uParam;
+  system.sysutils, system.IOUtils, Olf.RTL.Params;
 
 const
   CBruitagesOnOff = 'BruitagesOnOff';

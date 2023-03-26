@@ -8,8 +8,8 @@ uses
   uBruitages in 'uBruitages.pas',
   uConfig in 'uConfig.pas',
   uMusic in 'uMusic.pas',
-  uParam in 'uParam.pas',
-  u_scores in 'u_scores.pas';
+  u_scores in 'u_scores.pas',
+  Olf.RTL.Params in '..\lib-externes\librairies\Olf.RTL.Params.pas';
 
 {$R *.res}
 
