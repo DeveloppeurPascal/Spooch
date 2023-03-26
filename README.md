@@ -26,6 +26,7 @@ To download this project you better should use "git" command but you also can do
 
 This project depends on :
 
+* [DeveloppeurPascal/AboutDialog-Delphi-Component](https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component) in the sub folder ./lib-externes/AboutDialog-Delphi-Component
 * [DeveloppeurPascal/FMXGameEngine](https://github.com/DeveloppeurPascal/FMXGameEngine) in the sub folder ./lib-externes/FMXGameEngine
 * [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) in the sub folder ./lib-externes/librairies
 
