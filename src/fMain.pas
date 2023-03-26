@@ -285,8 +285,8 @@ begin
     linefeed + linefeed +
     'Les graphismes proviennent de Adobe Stock (fond d''écran), Kenney.nl (vaisseaux & tirs) et OpenGameArt.org (explosions).'
     + linefeed + linefeed +
-    'Développé par Patrick Prémartin (et parfois ses viewers) avec Delphi 10.4.2 Sydney.'
-    + linefeed + linefeed + 'c) Olf Software / Gamolf 2021';
+    'Développé par Patrick Prémartin (et parfois ses viewers) avec Delphi 11.3 Alexandria.'
+    + linefeed + linefeed + '(c) 2021-2023 Patrick Prémartin - Gamolf';
   // TODO : activer les liens dans le texte
   AjusteHauteurZoneDeContenu(EcranCreditsContenu);
 end;
