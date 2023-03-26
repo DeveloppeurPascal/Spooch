@@ -4,6 +4,8 @@
 
 [Spooch](https://spooch.gamolf.fr/) is a video game developed under Delphi in a FireMonkey project : travel through space avoiding enemy fire and ships.
 
+![while playing Spooch (screen capture)](design/Spooch-203x300.jpg)
+
 The development sessions were done live on [Twitch](https://www.twitch.tv/patrickpremartin). Their replays are available on [Spooch's page](https://serialstreameur.fr/jv-spooch.php) of the [Serial Streamer](https://serialstreameur.fr/) website.
 
 Explanations and information on the source code side are available on [Spooch's page](https://developpeur-pascal.fr/spooch.html) of the [Developpeur Pascal](https://developpeur-pascal.fr/) blog.
@@ -11,6 +13,8 @@ Explanations and information on the source code side are available on [Spooch's 
 You can find more information, videos and download info from [Spooch](https://spooch.gamolf.fr/) on [his website](https://spooch.gamolf.fr/).
 
 This code repository contains a project developed in Object Pascal language under Delphi. You don't know what Delphi is and where to download it ? You'll learn more [on this web site](https://delphi-resources.developpeur-pascal.fr/).
+
+![Spooch in Delphi editor (screen capture)](design/Spooch-500x282.jpg)
 
 ## Install
 
