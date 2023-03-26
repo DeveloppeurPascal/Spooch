@@ -8,7 +8,8 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Ani,
   FMX.Objects, FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls,
   FMX.Effects, System.Generics.Collections, FMX.ListView.Types,
-  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView;
+  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView,
+  Gamolf.RTL.Scores;
 
 const
   CNbMechantMax = 5;
@@ -204,11 +205,13 @@ type
     procedure AffichageEcranCredits;
     procedure AjusteHauteurZoneDeContenu(ZoneAAjuster: TLayout);
     procedure BoiteDeDialogueParDessus;
+    procedure MigrateOldScoresFileToNewPath;
   public
     { Déclarations publiques }
     MissileJoueurList: TMissileJoueurList;
     MissileMechantList: TMissileMechantList;
     MechantsList: TMechantsList;
+    ListeDesScores: TScoreList;
     property Score: integer read FScore write SetScore;
     property JoueurX: single read FJoueurX write SetJoueurX;
     property JoueurY: single read FJoueurY write SetJoueurY;
@@ -225,7 +228,7 @@ implementation
 
 uses
   System.math, System.strutils, uMusic, uConfig, uBruitages, System.Threading,
-  u_scores, Olf.RTL.Params;
+  Olf.RTL.Params, System.IOUtils;
 
 procedure tfrmMain.btnCreditsDuJeuCanFocus(Sender: TObject;
   var ACanFocus: boolean);
@@ -307,24 +310,23 @@ begin
   EcranFinDePartie.BringToFront;
   lblFinDePartieScore.Text := 'Score final : ' + Score.ToString + ' point' +
     ifthen(Score > 1, 's', '');
-  score_add('n/a', Score, 0); // TODO : Faire saisie du pseudo
+  if Score > 0 then
+    ListeDesScores.Add('n/a', Score); // TODO : Faire saisie du pseudo
   AjusteHauteurZoneDeContenu(EcranFinDePartieContenu);
 end;
 
 procedure tfrmMain.AffichageEcranHallOfFame;
 var
   i: integer;
-  Scores: tScoreListe;
   Item: TListViewItem;
 begin
   EcranHallOfFame.Visible := true;
   EcranHallOfFame.BringToFront;
   lstScores.Items.Clear;
-  Scores := score_liste_get;
-  for i := 0 to Scores.count - 1 do
+  for i := 0 to ListeDesScores.count - 1 do
   begin
     Item := lstScores.Items.Add;
-    Item.Text := Scores[i].points.ToString;
+    Item.Text := ListeDesScores[i].points.ToString;
   end;
   AjusteHauteurZoneDeContenu(EcranHallOfFameContenu);
 end;
@@ -415,6 +417,10 @@ end;
 
 procedure tfrmMain.FormCreate(Sender: TObject);
 begin
+  ListeDesScores := TScoreList.Create('Gamolf', 'Spooch');
+  MigrateOldScoresFileToNewPath;
+  ListeDesScores.Load;
+
   FEcranActuel := TListeEcrans.Aucun;
   // Masquer tous les TLayout 'EcranXXX' masque aussi 'EcranMenuBouton'
   // dans 'EcranMenu' donc un filtrage sur le parent permet d'éviter
@@ -465,6 +471,7 @@ begin
   MissileMechantList.Free;
   MissileJoueurList.Free;
   MechantsList.Free;
+  ListeDesScores.Free;
 end;
 
 procedure tfrmMain.FormKeyDown(Sender: TObject; var Key: Word;
@@ -560,6 +567,19 @@ begin
   Spritejoueur.Visible := false;
   // à gérer en stopperpartie (commun à findepartie)
   EcranActuel := TListeEcrans.Menu;
+end;
+
+procedure tfrmMain.MigrateOldScoresFileToNewPath;
+var
+  OldFileName: string;
+begin
+  OldFileName := ListeDesScores.GetOldScoreFileName('Gamolf', 'Spooch');
+  if tfile.exists(OldFileName) then
+  begin
+    ListeDesScores.LoadFromFile(OldFileName);
+    ListeDesScores.save;
+    tfile.Delete(OldFileName);
+  end;
 end;
 
 procedure tfrmMain.PerteDUneVie;
@@ -1124,6 +1144,5 @@ randomize;
 {$IFDEF DEBUG}
 ReportMemoryLeaksOnShutdown := true;
 {$ENDIF}
-score_init('Gamolf', 'Spooch');
 
 end.
