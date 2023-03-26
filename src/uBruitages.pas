@@ -11,8 +11,8 @@ procedure CouperLesBruitages;
 
 implementation
 
-uses system.IOutils, system.SysUtils, uMusicLoop, system.Threading, uConfig,
-  classes, system.Generics.Collections, fmx.forms;
+uses system.IOutils, system.SysUtils, system.Threading, uConfig,
+  classes, system.Generics.Collections, fmx.forms, Gamolf.FMX.MusicLoop;
 
 type
   TBruitage = class(tmusicloop)

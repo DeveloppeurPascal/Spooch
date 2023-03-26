@@ -2,7 +2,7 @@ unit uMusic;
 
 interface
 
-uses uMusicLoop;
+uses Gamolf.FMX.MusicLoop;
 
 type
   TMusiques = class
@@ -35,8 +35,7 @@ begin
 {$ELSEIF defined(MSWINDOWS)}
     // deploy in ;\
 {$IFDEF DEBUG}
-    NomFichier :=
-      '..\..\..\assets\GinnyCulp\';
+    NomFichier := '..\..\..\assets\GinnyCulp\';
 {$ELSE}
     NomFichier := extractfilepath(paramstr(0));
 {$ENDIF}
@@ -53,7 +52,7 @@ begin
 {$ENDIF}
     NomFichier := tpath.combine(NomFichier, 'traveller-1min20.mp3');
     fAmbiance.Load(NomFichier);
-    fambiance.Volume := tconfig.MusiqueDAmbianceVolume;
+    fAmbiance.Volume := tconfig.MusiqueDAmbianceVolume;
   end;
   result := fAmbiance;
 end;

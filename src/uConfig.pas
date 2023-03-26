@@ -2,7 +2,7 @@ unit uConfig;
 
 interface
 
-uses uMusicLoop;
+uses Gamolf.FMX.MusicLoop;
 
 type
   TConfig = class

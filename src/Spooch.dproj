@@ -429,7 +429,8 @@
         <Icon_MainIcon>..\design\icones\spooch.ico</Icon_MainIcon>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icns_MainIcns>..\design\icones\spooch.icns</Icns_MainIcns>
-        <VerInfo_Keys>CompanyName=Olf Software;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=2021 Olf Software / Gamolf;LegalTrademarks=;OriginalFilename=;ProgramID=fr.gamolf.$(MSBuildProjectName).dev;ProductName=$(MSBuildProjectName) dev;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Olf Software;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.1;InternalName=;LegalCopyright=2021 Olf Software / Gamolf;LegalTrademarks=;OriginalFilename=;ProgramID=fr.gamolf.$(MSBuildProjectName).dev;ProductName=$(MSBuildProjectName) dev;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Build>1</VerInfo_Build>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -519,16 +520,16 @@
             <Form>frmMain</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="uMusicLoop.pas">
-            <Form>MusicLoop</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
         <DCCReference Include="uBruitages.pas"/>
         <DCCReference Include="uConfig.pas"/>
         <DCCReference Include="uMusic.pas"/>
         <DCCReference Include="..\lib-externes\librairies\Olf.RTL.Params.pas"/>
         <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Scores.pas"/>
+        <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.FMX.MusicLoop.pas">
+            <Form>MusicLoop</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
