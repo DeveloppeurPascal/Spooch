@@ -210,6 +210,7 @@ type
     procedure AjusteHauteurZoneDeContenu(ZoneAAjuster: TLayout);
     procedure BoiteDeDialogueParDessus;
     procedure MigrateOldScoresFileToNewPath;
+    procedure MoveWithAJoystickorGamepad;
   protected
     imgBackground: trectangle;
   public
@@ -234,7 +235,8 @@ implementation
 
 uses
   System.math, System.strutils, uMusic, uConfig, uBruitages, System.Threading,
-  Olf.RTL.Params, System.IOUtils, cImgSpaceBackground;
+  Olf.RTL.Params, System.IOUtils, cImgSpaceBackground, FMX.Platform,
+  Gamolf.FMX.Joystick;
 
 procedure tfrmMain.btnCreditsDuJeuCanFocus(Sender: TObject;
   var ACanFocus: boolean);
@@ -396,6 +398,9 @@ var
   MissileEnnemi: TMissileMechant;
   Mechant: TMechant;
 begin
+  // Gestion des manettes de jeu
+  MoveWithAJoystickorGamepad;
+
   // Déplace le background
   LigneAfficheeDuBasDuBackground := LigneAfficheeDuBasDuBackground -
     VitesseDuBackground;
@@ -531,7 +536,7 @@ begin
       else
         JoueurVX := JoueurVX + 1;
     end;
-    if KeyChar = ' ' then
+    if KeyChar = ' ' then // space bar
     begin
       KeyChar := #0;
       LanceUnMissile;
@@ -595,6 +600,44 @@ begin
     ListeDesScores.LoadFromFile(OldFileName);
     ListeDesScores.save;
     tfile.Delete(OldFileName);
+  end;
+end;
+
+procedure tfrmMain.MoveWithAJoystickorGamepad;
+var
+  JoystickService: IGamolfJoystickService;
+  num: integer;
+  ji: TJoystickInfo;
+begin
+  if not PartieEnCours then
+    exit;
+  if TPlatformServices.Current.SupportsPlatformService(IGamolfJoystickService,
+    JoystickService) then
+  begin
+    for num := 0 to JoystickService.count - 1 do
+    begin
+      try
+        JoystickService.getInfo(num, ji);
+        if ji.DPad = ord(TJoystickDPad.Left) then
+        begin
+          if JoueurVX > 0 then
+            JoueurVX := -1
+          else if joueurvx>-5 then
+            JoueurVX := JoueurVX - 1;
+        end
+        else if ji.DPad = ord(TJoystickDPad.right) then
+        begin
+          if JoueurVX < 0 then
+            JoueurVX := 1
+          else if joueurvx<5 then
+            JoueurVX := JoueurVX + 1;
+        end;
+        if length(ji.PressedButtons) > 0 then
+          LanceUnMissile;
+      except
+        on e: EJoystickUnpluggedException do;
+      end;
+    end;
   end;
 end;
 
