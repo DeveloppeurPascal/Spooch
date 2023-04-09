@@ -534,6 +534,8 @@
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
+        <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.FMX.Joystick.pas"/>
+        <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.FMX.Joystick.Windows.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
