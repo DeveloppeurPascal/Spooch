@@ -4,7 +4,8 @@ interface
 
 type
 {$SCOPEDENUMS ON}
-  TTypeBruitage = (ExplosionJoueur, ExplosionVaisseauEnnemi, ExplosionTirEnnemi);
+  TTypeBruitage = (ExplosionJoueur, ExplosionVaisseauEnnemi,
+    ExplosionTirEnnemi);
 {$SCOPEDENUMS OFF}
 procedure JouerBruitage(TypeBruitage: TTypeBruitage);
 procedure CouperLesBruitages;
@@ -12,7 +13,7 @@ procedure CouperLesBruitages;
 implementation
 
 uses system.IOutils, system.SysUtils, system.Threading, uConfig,
-  classes, system.Generics.Collections, fmx.forms, Gamolf.FMX.MusicLoop;
+  classes, system.Generics.Collections, fmx.forms, Gamolf.fmx.MusicLoop;
 
 type
   TBruitage = class(tmusicloop)
@@ -31,7 +32,7 @@ var
 
 function AjouteSon(TypeBruitage: TTypeBruitage): TBruitage;
 begin
-  result := TBruitage.Create(nil);
+  result := TBruitage.Create; // TODO : remplacer par TSoundList
   try
     result.TypeBruitage := TypeBruitage;
     ListeDeSons.Add(result);

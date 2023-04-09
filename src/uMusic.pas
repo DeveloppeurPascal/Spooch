@@ -18,7 +18,7 @@ implementation
 
 uses
 
-  System.SysUtils, System.IOUtils, fmx.forms, uConfig;
+  System.SysUtils, System.IOUtils, FMX.forms, uConfig;
 
 { TMusiques }
 
@@ -28,7 +28,7 @@ var
 begin
   if not assigned(fAmbiance) then
   begin
-    fAmbiance := tmusicloop.Create(nil);
+    fAmbiance := tmusicloop.current;
 {$IF defined(ANDROID)}
     // deploy in .\assets\internal\
     NomFichier := tpath.GetDocumentsPath;
