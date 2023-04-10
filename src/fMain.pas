@@ -236,7 +236,7 @@ implementation
 uses
   System.math, System.strutils, uMusic, uConfig, uBruitages, System.Threading,
   Olf.RTL.Params, System.IOUtils, cImgSpaceBackground, FMX.Platform,
-  Gamolf.FMX.Joystick;
+  Gamolf.RTL.Joystick, Gamolf.FMX.MusicLoop;
 
 procedure tfrmMain.btnCreditsDuJeuCanFocus(Sender: TObject;
   var ACanFocus: boolean);
@@ -478,7 +478,7 @@ begin
 
   // Lance la musique
   if tconfig.MusiqueDAmbianceOnOff then
-    TMusiques.Ambiance.Play;
+    tmusicloop.current.Play;
 
   tthread.ForceQueue(nil,
     procedure
@@ -611,7 +611,7 @@ var
 begin
   if not PartieEnCours then
     exit;
-  if TPlatformServices.Current.SupportsPlatformService(IGamolfJoystickService,
+  if TPlatformServices.current.SupportsPlatformService(IGamolfJoystickService,
     JoystickService) then
   begin
     for num := 0 to JoystickService.count - 1 do
@@ -622,14 +622,14 @@ begin
         begin
           if JoueurVX > 0 then
             JoueurVX := -1
-          else if joueurvx>-5 then
+          else if JoueurVX > -5 then
             JoueurVX := JoueurVX - 1;
         end
         else if ji.DPad = ord(TJoystickDPad.right) then
         begin
           if JoueurVX < 0 then
             JoueurVX := 1
-          else if joueurvx<5 then
+          else if JoueurVX < 5 then
             JoueurVX := JoueurVX + 1;
         end;
         if length(ji.PressedButtons) > 0 then
@@ -786,16 +786,16 @@ procedure tfrmMain.swMusiqueSwitch(Sender: TObject);
 begin
   tbMusique.Visible := swMusique.IsChecked;
   if swMusique.IsChecked then
-    TMusiques.Ambiance.Play
+    tmusicloop.current.Play
   else
-    TMusiques.Ambiance.stop;
+    tmusicloop.current.stop;
   tconfig.MusiqueDAmbianceOnOff := swMusique.IsChecked;
 end;
 
 procedure tfrmMain.tbMusiqueTracking(Sender: TObject);
 begin
   tconfig.MusiqueDAmbianceVolume := round(tbMusique.Value);
-  TMusiques.Ambiance.Volume := tconfig.MusiqueDAmbianceVolume;
+  tmusicloop.current.Volume := tconfig.MusiqueDAmbianceVolume;
 end;
 
 procedure tfrmMain.tbBruitagesChange(Sender: TObject);
