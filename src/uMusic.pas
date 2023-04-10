@@ -5,7 +5,7 @@ interface
 implementation
 
 uses
-  System.IOUtils, uConfig, Gamolf.FMX.MusicLoop;
+  System.SysUtils, System.IOUtils, uConfig, Gamolf.FMX.MusicLoop;
 
 procedure Prechargement;
 var

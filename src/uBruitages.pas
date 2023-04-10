@@ -12,7 +12,8 @@ procedure CouperLesBruitages;
 
 implementation
 
-uses system.IOutils, uConfig, Gamolf.fmx.MusicLoop;
+uses
+  System.SysUtils, System.IOutils, uConfig, Gamolf.fmx.MusicLoop;
 
 procedure JouerBruitage(TypeBruitage: TTypeBruitage);
 begin
