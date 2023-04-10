@@ -39,6 +39,9 @@ type
       write SetEffetsVisuelsOnOff;
   end;
 
+var
+  PartieEnCours: boolean;
+
 implementation
 
 uses
@@ -166,5 +169,6 @@ initialization
   tParams.setFolderName(tpath.combine(tpath.combine(tpath.GetHomePath,
   'Gamolf'), 'Spooch'));
 {$ENDIF}
+PartieEnCours := false
 
 end.

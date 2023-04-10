@@ -172,7 +172,6 @@ type
   private
     FLigneAfficheeDuBasDuBackground: single;
     FVitesseDuBackground: single;
-    FPartieEnCours: boolean;
     FJoueurVX: single;
     FJoueurX: single;
     FJoueurY: single;
@@ -181,7 +180,6 @@ type
     FBoiteDeDialogueParDessus: TLayout;
     procedure SetLigneAfficheeDuBasDuBackground(const Value: single);
     procedure SetVitesseDuBackground(const Value: single);
-    procedure SetPartieEnCours(const Value: boolean);
     procedure SetJoueurVX(const Value: single);
     procedure SetJoueurX(const Value: single);
     procedure SetJoueurY(const Value: single);
@@ -193,7 +191,6 @@ type
       write SetLigneAfficheeDuBasDuBackground;
     property VitesseDuBackground: single read FVitesseDuBackground
       write SetVitesseDuBackground;
-    property PartieEnCours: boolean read FPartieEnCours write SetPartieEnCours;
     procedure InitialiseFormatEcran;
     procedure LanceUnePartie;
     procedure LanceUnMissile;
@@ -236,7 +233,7 @@ implementation
 uses
   System.math, System.strutils, uMusic, uConfig, uBruitages, System.Threading,
   Olf.RTL.Params, System.IOUtils, cImgSpaceBackground, FMX.Platform,
-  Gamolf.RTL.Joystick, Gamolf.FMX.MusicLoop;
+  Gamolf.RTL.Joystick, Gamolf.FMX.MusicLoop, JoystickManager;
 
 procedure tfrmMain.btnCreditsDuJeuCanFocus(Sender: TObject;
   var ACanFocus: boolean);
@@ -399,7 +396,7 @@ var
   Mechant: TMechant;
 begin
   // Gestion des manettes de jeu
-  MoveWithAJoystickorGamepad;
+  // MoveWithAJoystickorGamepad; // TODO : à réactiver ???
 
   // Déplace le background
   LigneAfficheeDuBasDuBackground := LigneAfficheeDuBasDuBackground -
@@ -484,6 +481,7 @@ begin
     procedure
     begin
       EcranActuel := TListeEcrans.Menu;
+      StartJoystick;
     end);
 end;
 
@@ -609,6 +607,7 @@ var
   num: integer;
   ji: TJoystickInfo;
 begin
+  exit; // TODO : désactivation joystick en tant que joystick
   if not PartieEnCours then
     exit;
   if TPlatformServices.current.SupportsPlatformService(IGamolfJoystickService,
@@ -734,11 +733,6 @@ begin
       imgBackground.fill.Bitmap.Bitmap.height;
   imgBackground.Position.Point :=
     pointf(0, background.originalheight - FLigneAfficheeDuBasDuBackground);
-end;
-
-procedure tfrmMain.SetPartieEnCours(const Value: boolean);
-begin
-  FPartieEnCours := Value;
 end;
 
 procedure tfrmMain.SetScore(const Value: integer);
@@ -946,7 +940,7 @@ begin
   else
     GereCollision;
 
-  if (not FicheAssociee.PartieEnCours) then
+  if (not PartieEnCours) then
   begin
     if (random(100) < 10) and (not ATire) then
     begin
