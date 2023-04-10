@@ -12,7 +12,8 @@ uses
   Gamolf.FMX.MusicLoop in '..\lib-externes\FMXGameEngine\src\Gamolf.FMX.MusicLoop.pas' {MusicLoop: TDataModule},
   cImgSpaceBackground in 'cImgSpaceBackground.pas' {cadImgSpaceBackground: TFrame},
   Gamolf.FMX.Joystick in '..\lib-externes\FMXGameEngine\src\Gamolf.FMX.Joystick.pas',
-  Gamolf.FMX.Joystick.Windows in '..\lib-externes\FMXGameEngine\src\Gamolf.FMX.Joystick.Windows.pas';
+  Gamolf.RTL.Joystick in '..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Joystick.pas',
+  Gamolf.RTL.Joystick.Windows in '..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Joystick.Windows.pas';
 
 {$R *.res}
 
