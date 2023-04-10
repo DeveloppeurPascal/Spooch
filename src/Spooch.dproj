@@ -537,6 +537,7 @@
         <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.FMX.Joystick.pas"/>
         <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Joystick.pas"/>
         <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Joystick.Windows.pas"/>
+        <DCCReference Include="JoystickManager.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -1048,6 +1049,12 @@
                 <DeployFile LocalName="OSX64\Release\Spooch" Configuration="Release" Class="ProjectOutput"/>
                 <DeployFile LocalName="OSX64\Release\Spooch" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="OSX64">
+                        <RemoteName>Spooch</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="OSXARM64\Debug\Spooch.dSYM" Configuration="Debug" Class="ProjectOSXDebug">
+                    <Platform Name="OSXARM64">
                         <RemoteName>Spooch</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>

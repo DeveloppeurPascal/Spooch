@@ -13,7 +13,8 @@ uses
   cImgSpaceBackground in 'cImgSpaceBackground.pas' {cadImgSpaceBackground: TFrame},
   Gamolf.FMX.Joystick in '..\lib-externes\FMXGameEngine\src\Gamolf.FMX.Joystick.pas',
   Gamolf.RTL.Joystick in '..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Joystick.pas',
-  Gamolf.RTL.Joystick.Windows in '..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Joystick.Windows.pas';
+  Gamolf.RTL.Joystick.Windows in '..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Joystick.Windows.pas',
+  JoystickManager in 'JoystickManager.pas';
 
 {$R *.res}
 
