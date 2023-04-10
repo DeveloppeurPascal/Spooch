@@ -2,68 +2,43 @@ unit uMusic;
 
 interface
 
-uses Gamolf.FMX.MusicLoop;
-
-type
-  TMusiques = class
-  private
-    class function getAmbiance: tmusicloop; static;
-  protected
-    class var fAmbiance: tmusicloop;
-  public
-    class property Ambiance: tmusicloop read getAmbiance;
-  end;
-
 implementation
 
 uses
+  System.IOUtils, uConfig, Gamolf.FMX.MusicLoop;
 
-  System.SysUtils, System.IOUtils, FMX.forms, uConfig;
-
-{ TMusiques }
-
-class function TMusiques.getAmbiance: tmusicloop;
+procedure Prechargement;
 var
-  NomFichier: string;
+  Chemin, NomFichier: string;
 begin
-  if not assigned(fAmbiance) then
-  begin
-    fAmbiance := tmusicloop.current;
 {$IF defined(ANDROID)}
-    // deploy in .\assets\internal\
-    NomFichier := tpath.GetDocumentsPath;
+  // deploy in .\assets\internal\
+  Chemin := tpath.GetDocumentsPath;
 {$ELSEIF defined(MSWINDOWS)}
-    // deploy in ;\
+  // deploy in ;\
 {$IFDEF DEBUG}
-    NomFichier := '..\..\..\assets\GinnyCulp\';
+  Chemin := '..\..\..\assets\GinnyCulp\';
 {$ELSE}
-    NomFichier := extractfilepath(paramstr(0));
+  Chemin := extractfilepath(paramstr(0));
 {$ENDIF}
 {$ELSEIF defined(IOS)}
-    // deploy in .\
-    NomFichier := extractfilepath(paramstr(0));
+  // deploy in .\
+  Chemin := extractfilepath(paramstr(0));
 {$ELSEIF defined(MACOS)}
-    // deploy in Contents\MacOS
-    NomFichier := extractfilepath(paramstr(0));
+  // deploy in Contents\MacOS
+  Chemin := extractfilepath(paramstr(0));
 {$ELSEIF Defined(LINUX)}
-    NomFichier := extractfilepath(paramstr(0));
+  Chemin := extractfilepath(paramstr(0));
 {$ELSE}
 {$MESSAGE FATAL 'OS non supporté'}
 {$ENDIF}
-    NomFichier := tpath.combine(NomFichier, 'traveller-1min20.mp3');
-    fAmbiance.Load(NomFichier);
-    fAmbiance.Volume := tconfig.MusiqueDAmbianceVolume;
-  end;
-  result := fAmbiance;
+  NomFichier := tpath.combine(Chemin, 'traveller-1min20.mp3');
+  tmusicloop.current.Load(NomFichier);
+  tmusicloop.current.Volume := tconfig.MusiqueDAmbianceVolume;
 end;
 
 initialization
 
-TMusiques.fAmbiance := nil;
-
-finalization
-
-if assigned(TMusiques.fAmbiance) then
-  TMusiques.fAmbiance.Free;
+Prechargement;
 
 end.
