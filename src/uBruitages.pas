@@ -12,124 +12,68 @@ procedure CouperLesBruitages;
 
 implementation
 
-uses system.IOutils, system.SysUtils, system.Threading, uConfig,
-  classes, system.Generics.Collections, fmx.forms, Gamolf.fmx.MusicLoop;
-
-type
-  TBruitage = class(tmusicloop)
-  private
-    FTypeBruitage: TTypeBruitage;
-    procedure SetTypeBruitage(const Value: TTypeBruitage);
-  public
-    property TypeBruitage: TTypeBruitage read FTypeBruitage
-      write SetTypeBruitage;
-  end;
-
-  TBruitagesListe = TObjectList<TBruitage>;
-
-var
-  ListeDeSons: TBruitagesListe;
-
-function AjouteSon(TypeBruitage: TTypeBruitage): TBruitage;
-begin
-  result := TBruitage.Create; // TODO : remplacer par TSoundList
-  try
-    result.TypeBruitage := TypeBruitage;
-    ListeDeSons.Add(result);
-  except
-    result.free;
-    result := nil;
-  end;
-end;
-
-procedure Prechargement;
-var
-  TypeBruitage: TTypeBruitage;
-begin
-  for TypeBruitage := low(TTypeBruitage) to high(TTypeBruitage) do
-    AjouteSon(TypeBruitage);
-end;
+uses system.IOutils, uConfig, Gamolf.fmx.MusicLoop;
 
 procedure JouerBruitage(TypeBruitage: TTypeBruitage);
-var
-  son: TBruitage;
 begin
   if TConfig.BruitagesOnOff then
   begin
-    if (ListeDeSons.Count > 0) then
-      for son in ListeDeSons do
-        if (son.TypeBruitage = TypeBruitage) and (not son.IsPlaying) then
-        begin
-          son.Volume := TConfig.BruitagesVolume;
-          son.PlaySound;
-          exit;
-        end;
-    son := AjouteSon(TypeBruitage);
-    if assigned(son) then
-    begin
-      son.Volume := TConfig.BruitagesVolume;
-      son.PlaySound;
-    end;
+    tsoundlist.Current.Volume := TConfig.BruitagesVolume;
+    tsoundlist.Current.Play(ord(TypeBruitage));
   end;
 end;
 
 procedure CouperLesBruitages;
-var
-  son: TBruitage;
 begin
-  if (ListeDeSons.Count > 0) then
-    for son in ListeDeSons do
-      son.stop;
+  tsoundlist.Current.MuteAll;
 end;
 
 { TBruitage }
 
-procedure TBruitage.SetTypeBruitage(const Value: TTypeBruitage);
+procedure Prechargement;
 var
-  NomFichier: string;
+  Chemin, NomFichier: string;
+  TypeBruitage: TTypeBruitage;
 begin
-  FTypeBruitage := Value;
 {$IF defined(ANDROID)}
   // deploy in .\assets\internal\
-  NomFichier := tpath.GetDocumentsPath;
+  Chemin := tpath.GetDocumentsPath;
 {$ELSEIF defined(MSWINDOWS)}
   // deploy in ;\
 {$IFDEF DEBUG}
-  NomFichier := '..\..\..\assets\TheGameCreators\SoundMatter';
+  Chemin := '..\..\..\assets\TheGameCreators\SoundMatter';
 {$ELSE}
-  NomFichier := extractfilepath(paramstr(0));
+  Chemin := extractfilepath(paramstr(0));
 {$ENDIF}
 {$ELSEIF defined(IOS)}
   // deploy in .\
-  NomFichier := extractfilepath(paramstr(0));
+  Chemin := extractfilepath(paramstr(0));
 {$ELSEIF defined(MACOS)}
   // deploy in Contents\MacOS
-  NomFichier := extractfilepath(paramstr(0));
+  Chemin := extractfilepath(paramstr(0));
 {$ELSEIF Defined(LINUX)}
-  NomFichier := extractfilepath(paramstr(0));
+  Chemin := extractfilepath(paramstr(0));
 {$ELSE}
 {$MESSAGE FATAL 'OS non supporté'}
 {$ENDIF}
-  case TypeBruitage of
-    TTypeBruitage.ExplosionJoueur:
-      NomFichier := tpath.combine(NomFichier, 'BlastSoft.wav');
-    TTypeBruitage.ExplosionVaisseauEnnemi:
-      NomFichier := tpath.combine(NomFichier, 'ExploSimple.wav');
-    TTypeBruitage.ExplosionTirEnnemi:
-      NomFichier := tpath.combine(NomFichier, 'ExploMetallic.wav');
-  else
-    exit;
+  for TypeBruitage := low(TTypeBruitage) to high(TTypeBruitage) do
+  begin
+    case TypeBruitage of
+      TTypeBruitage.ExplosionJoueur:
+        NomFichier := tpath.combine(Chemin, 'BlastSoft.wav');
+      TTypeBruitage.ExplosionVaisseauEnnemi:
+        NomFichier := tpath.combine(Chemin, 'ExploSimple.wav');
+      TTypeBruitage.ExplosionTirEnnemi:
+        NomFichier := tpath.combine(Chemin, 'ExploMetallic.wav');
+    else
+      exit;
+    end;
+    tsoundlist.Current.add(ord(TypeBruitage), NomFichier);
   end;
-  Load(NomFichier);
 end;
 
 initialization
 
-ListeDeSons := TBruitagesListe.Create;
 Prechargement;
-
-finalization
-
-ListeDeSons.free;
 
 end.
