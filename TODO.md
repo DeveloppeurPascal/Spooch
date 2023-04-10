@@ -36,7 +36,7 @@
 * ajouter une boite de dialogue "about"
 
 
-* animation trop sacadée sur macOS ARM en fonctionnement normal (vérifier hors stream et désactiver si correction injouble ou changer l'image de fond)
+* animation trop saccadée sur macOS ARM en fonctionnement normal (vérifier hors stream et désactiver si correction injouble ou changer l'image de fond)
 
 
 * chercher un WAV pour mettre sur les On/Off de l'interface utilisateur (clic sur boutons de menu et les checkbox dans les options)
