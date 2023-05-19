@@ -8,13 +8,16 @@ uses
   uConfig in 'uConfig.pas',
   uMusic in 'uMusic.pas',
   Olf.RTL.Params in '..\lib-externes\librairies\Olf.RTL.Params.pas',
-  Gamolf.RTL.Scores in '..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Scores.pas',
-  Gamolf.FMX.MusicLoop in '..\lib-externes\FMXGameEngine\src\Gamolf.FMX.MusicLoop.pas' {MusicLoop: TDataModule},
   cImgSpaceBackground in 'cImgSpaceBackground.pas' {cadImgSpaceBackground: TFrame},
+  JoystickManager in 'JoystickManager.pas',
   Gamolf.FMX.Joystick in '..\lib-externes\FMXGameEngine\src\Gamolf.FMX.Joystick.pas',
+  Gamolf.FMX.MusicLoop in '..\lib-externes\FMXGameEngine\src\Gamolf.FMX.MusicLoop.pas',
+  Gamolf.RTL.Joystick.Mac in '..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Joystick.Mac.pas',
   Gamolf.RTL.Joystick in '..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Joystick.pas',
   Gamolf.RTL.Joystick.Windows in '..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Joystick.Windows.pas',
-  JoystickManager in 'JoystickManager.pas';
+  Gamolf.RTL.Scores in '..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Scores.pas',
+  iOSapi.GameController in '..\lib-externes\FMXGameEngine\src\iOSapi.GameController.pas',
+  Macapi.GameController in '..\lib-externes\FMXGameEngine\src\Macapi.GameController.pas';
 
 {$R *.res}
 
