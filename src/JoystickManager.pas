@@ -62,8 +62,8 @@ begin
                     else
                       Key := vkreturn; // OK sur bouton actif par défaut
                   end
-                  else if (length(Infos.Buttons) > 1) and Infos.Buttons[1] then
-                    Key := vkescape
+//                  else if (length(Infos.Buttons) > 1) and Infos.Buttons[1] then
+//                    Key := vkescape
                   else if JoystickService.isdpad(DPad, TJoystickDPad.top) then
                     Key := vkUp
                   else if JoystickService.isdpad(DPad, TJoystickDPad.right) then
