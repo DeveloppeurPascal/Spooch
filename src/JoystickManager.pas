@@ -13,6 +13,9 @@ uses
   System.Classes, System.UITypes, FMX.Forms, Gamolf.RTL.Joystick, FMX.Platform,
   uConfig;
 
+const
+  CButtonPressed = 65535;
+
 var
   JoystickService: IGamolfJoystickService;
 
@@ -55,16 +58,12 @@ begin
                       Infos.Axes[1]);
                   Key := 0;
                   KeyChar := #0;
-//                  if (length(Infos.Buttons) > 0) and Infos.Buttons[0] then
-                  if (length(infos.PressedButtons)>0) then
-                  begin
-                    if partieencours then
-                      KeyChar := ' ' // tir missile
-                    else
-                      Key := vkreturn; // OK sur bouton actif par défaut
-                  end
-//                  else if (length(Infos.Buttons) > 1) and Infos.Buttons[1] then
-//                    Key := vkescape
+                  // if (length(Infos.Buttons) > 0) and Infos.Buttons[0] then
+                  if (length(Infos.PressedButtons) > 0) then
+                    // tir de missile (en jeu) ou bouton par défaut (en menu)
+                    Key := CButtonPressed
+                    // else if (length(Infos.Buttons) > 1) and Infos.Buttons[1] then
+                    // Key := vkescape
                   else if JoystickService.isdpad(DPad, TJoystickDPad.top) then
                     Key := vkUp
                   else if JoystickService.isdpad(DPad, TJoystickDPad.right) then
@@ -77,11 +76,13 @@ begin
                   if (ClickedJoystickID = ID) then
                     if (ClickedKey = Key) and (ClickedKeyChar = KeyChar) then
                     begin
+                      // Touche annulée
                       Key := 0;
                       KeyChar := #0;
                     end
                     else
                     begin
+                      // Touche envoyée
                       ClickedKey := Key;
                       ClickedKeyChar := KeyChar;
                     end;
@@ -104,6 +105,15 @@ begin
                               ClickedJoystickID := ID;
                               ClickedKey := Key;
                               ClickedKeyChar := KeyChar;
+                              // Send the good key for pressed buttons
+                              // depending on the scene (game or dialog)
+                              if Key = CButtonPressed then
+                                if partieencours then
+                                  // tir missile
+                                  KeyChar := ' '
+                                else
+                                  // OK sur bouton actif par défaut
+                                  Key := vkreturn;
                               f.KeyDown(Key, KeyChar, []);
 {$IFDEF DEBUG}
                               // log.d(ClickedJoystickID.ToString + ' - ' +
