@@ -55,7 +55,8 @@ begin
                       Infos.Axes[1]);
                   Key := 0;
                   KeyChar := #0;
-                  if (length(Infos.Buttons) > 0) and Infos.Buttons[0] then
+//                  if (length(Infos.Buttons) > 0) and Infos.Buttons[0] then
+                  if (length(infos.PressedButtons)>0) then
                   begin
                     if partieencours then
                       KeyChar := ' ' // tir missile
