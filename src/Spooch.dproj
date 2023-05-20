@@ -534,9 +534,9 @@
         <DCCReference Include="JoystickManager.pas"/>
         <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.FMX.Joystick.pas"/>
         <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.FMX.MusicLoop.pas"/>
+        <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Joystick.DirectInput.Win.pas"/>
         <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Joystick.Mac.pas"/>
         <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Joystick.pas"/>
-        <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Joystick.Windows.pas"/>
         <DCCReference Include="..\lib-externes\FMXGameEngine\src\Gamolf.RTL.Scores.pas"/>
         <DCCReference Include="..\lib-externes\FMXGameEngine\src\iOSapi.GameController.pas"/>
         <DCCReference Include="..\lib-externes\FMXGameEngine\src\Macapi.GameController.pas"/>
