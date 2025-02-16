@@ -7,3 +7,6 @@
 [submodule "lib-externes/AboutDialog-Delphi-Component"]
 	path = lib-externes/AboutDialog-Delphi-Component
 	url = https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component.git
+[submodule "lib-externes/Gamolf-FMX-Game-Starter-Kit"]
+	path = lib-externes/Gamolf-FMX-Game-Starter-Kit
+	url = https://github.com/DeveloppeurPascal/Gamolf-FMX-Game-Starter-Kit
