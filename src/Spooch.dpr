@@ -1,9 +1,9 @@
 ﻿/// <summary>
 /// ***************************************************************************
 ///
-/// Gamolf FMX Game Starter Kit
+/// Spooch
 ///
-/// Copyright 2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2021-2025 Patrick PREMARTIN under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -15,13 +15,7 @@
 ///
 /// ***************************************************************************
 ///
-/// The "Gamolf FMX Game Starter Kit" is both a "technical" example of a video
-/// game developed in Delphi with everything you need inside and a reusable
-/// project template you can customize for your own games.
-///
-/// The files provided are fully functional. Numerous comments are included in
-/// the sources to explain how they work and what you need to copy, override
-/// or customize to make video games without starting from scratch.
+/// A game developed as a FireMonkey project in Delphi.
 ///
 /// ***************************************************************************
 ///
@@ -29,14 +23,14 @@
 /// Patrick PREMARTIN
 ///
 /// Site :
-/// https://fmxgamestarterkit.developpeur-pascal.fr/
+/// https://spooch.gamolf.fr/
 ///
 /// Project site :
-/// https://github.com/DeveloppeurPascal/Gamolf-FMX-Game-Starter-Kit
+/// https://github.com/DeveloppeurPascal/Spooch
 ///
 /// ***************************************************************************
-/// File last update : 2024-08-20T10:35:54.000+02:00
-/// Signature : cadecc1b4d025f19036832d980a0f8be872ace71
+/// File last update : 2025-02-16T15:56:04.000+01:00
+/// Signature : 4889eff38efa2f71687841625dff9a0b8fd33d73
 /// ***************************************************************************
 /// </summary>
 
@@ -50,15 +44,15 @@ uses
   Olf.FMX.AboutDialog in '..\lib-externes\AboutDialog-Delphi-Component\src\Olf.FMX.AboutDialog.pas',
   Olf.FMX.AboutDialogForm in '..\lib-externes\AboutDialog-Delphi-Component\src\Olf.FMX.AboutDialogForm.pas' {OlfAboutDialogForm},
   u_urlOpen in '..\lib-externes\librairies\src\u_urlOpen.pas',
-  uConsts in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uConsts.pas',
+  uConsts in 'uConsts.pas',
   Olf.RTL.Language in '..\lib-externes\librairies\src\Olf.RTL.Language.pas',
   Olf.RTL.CryptDecrypt in '..\lib-externes\librairies\src\Olf.RTL.CryptDecrypt.pas',
   Olf.RTL.Params in '..\lib-externes\librairies\src\Olf.RTL.Params.pas',
   Olf.Skia.SVGToBitmap in '..\lib-externes\librairies\src\Olf.Skia.SVGToBitmap.pas',
   uDMAboutBox in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMAboutBox.pas' {AboutBox: TDataModule},
-  uDMAboutBoxLogoStorrage in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMAboutBoxLogoStorrage.pas' {dmAboutBoxLogo: TDataModule},
-  uTxtAboutLicense in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uTxtAboutLicense.pas',
-  uTxtAboutDescription in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uTxtAboutDescription.pas',
+  uDMAboutBoxLogoStorrage in 'uDMAboutBoxLogoStorrage.pas' {dmAboutBoxLogo: TDataModule},
+  uTxtAboutLicense in 'uTxtAboutLicense.pas',
+  uTxtAboutDescription in 'uTxtAboutDescription.pas',
   Gamolf.FMX.HelpBar in '..\lib-externes\Delphi-Game-Engine\src\Gamolf.FMX.HelpBar.pas',
   Gamolf.FMX.Joystick in '..\lib-externes\Delphi-Game-Engine\src\Gamolf.FMX.Joystick.pas',
   Gamolf.FMX.MusicLoop in '..\lib-externes\Delphi-Game-Engine\src\Gamolf.FMX.MusicLoop.pas',
@@ -80,13 +74,13 @@ uses
   Olf.RTL.Streams in '..\lib-externes\librairies\src\Olf.RTL.Streams.pas',
   Olf.RTL.Maths.Conversions in '..\lib-externes\librairies\src\Olf.RTL.Maths.Conversions.pas',
   uBackgroundMusic in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uBackgroundMusic.pas',
-  uSoundEffects in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uSoundEffects.pas',
+  uSoundEffects in 'uSoundEffects.pas',
   USVGInputPrompts in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\kenney_nl\InputPrompts\USVGInputPrompts.pas',
   uDMGameControllerCenter in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMGameControllerCenter.pas' {DMGameControllerCenter: TDataModule},
   uSVGBitmapManager_InputPrompts in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uSVGBitmapManager_InputPrompts.pas',
   uDMHelpBarManager in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMHelpBarManager.pas' {HelpBarManager: TDataModule},
   _ButtonsAncestor in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\_ButtonsAncestor.pas' {__ButtonAncestor: TFrame},
-  uSceneBackground in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uSceneBackground.pas' {SceneBackground: TFrame};
+  uSceneBackground in 'uSceneBackground.pas' {SceneBackground: TFrame};
 
 {$R *.res}
 

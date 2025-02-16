@@ -639,7 +639,7 @@
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="..\lib-externes\librairies\src\u_urlOpen.pas"/>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uConsts.pas"/>
+        <DCCReference Include="uConsts.pas"/>
         <DCCReference Include="..\lib-externes\librairies\src\Olf.RTL.Language.pas"/>
         <DCCReference Include="..\lib-externes\librairies\src\Olf.RTL.CryptDecrypt.pas"/>
         <DCCReference Include="..\lib-externes\librairies\src\Olf.RTL.Params.pas"/>
@@ -649,13 +649,13 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMAboutBoxLogoStorrage.pas">
+        <DCCReference Include="uDMAboutBoxLogoStorrage.pas">
             <Form>dmAboutBoxLogo</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uTxtAboutLicense.pas"/>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uTxtAboutDescription.pas"/>
+        <DCCReference Include="uTxtAboutLicense.pas"/>
+        <DCCReference Include="uTxtAboutDescription.pas"/>
         <DCCReference Include="..\lib-externes\Delphi-Game-Engine\src\Gamolf.FMX.HelpBar.pas"/>
         <DCCReference Include="..\lib-externes\Delphi-Game-Engine\src\Gamolf.FMX.Joystick.pas"/>
         <DCCReference Include="..\lib-externes\Delphi-Game-Engine\src\Gamolf.FMX.MusicLoop.pas"/>
@@ -681,7 +681,7 @@
         <DCCReference Include="..\lib-externes\librairies\src\Olf.RTL.Streams.pas"/>
         <DCCReference Include="..\lib-externes\librairies\src\Olf.RTL.Maths.Conversions.pas"/>
         <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uBackgroundMusic.pas"/>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uSoundEffects.pas"/>
+        <DCCReference Include="uSoundEffects.pas"/>
         <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\kenney_nl\InputPrompts\USVGInputPrompts.pas"/>
         <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMGameControllerCenter.pas">
             <Form>DMGameControllerCenter</Form>
@@ -699,7 +699,7 @@
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uSceneBackground.pas">
+        <DCCReference Include="uSceneBackground.pas">
             <Form>SceneBackground</Form>
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
@@ -811,16 +811,355 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="..\_PRIVATE\assets\GinnyCulp\traveller-1min20.mp3" Configuration="Debug" Class="File">
+                    <Platform Name="Android">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSSimARM64">
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSXARM64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win64">
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\_PRIVATE\assets\GinnyCulp\traveller-1min20.mp3" Configuration="Release" Class="File">
+                    <Platform Name="Android">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSSimARM64">
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSXARM64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win64">
+                        <RemoteName>traveller-1min20.mp3</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\_PRIVATE\assets\TheGameCreators\SoundMatter\BlastSoft.wav" Configuration="Debug" Class="File">
+                    <Platform Name="Android">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSSimARM64">
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSXARM64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win64">
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\_PRIVATE\assets\TheGameCreators\SoundMatter\BlastSoft.wav" Configuration="Release" Class="File">
+                    <Platform Name="Android">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSSimARM64">
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSXARM64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win64">
+                        <RemoteName>BlastSoft.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\_PRIVATE\assets\TheGameCreators\SoundMatter\ExploMetallic.wav" Configuration="Debug" Class="File">
+                    <Platform Name="Android">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSSimARM64">
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSXARM64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win64">
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\_PRIVATE\assets\TheGameCreators\SoundMatter\ExploMetallic.wav" Configuration="Release" Class="File">
+                    <Platform Name="Android">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSSimARM64">
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSXARM64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win64">
+                        <RemoteName>ExploMetallic.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\_PRIVATE\assets\TheGameCreators\SoundMatter\ExploSimple.wav" Configuration="Debug" Class="File">
+                    <Platform Name="Android">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSSimARM64">
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSXARM64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win64">
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\_PRIVATE\assets\TheGameCreators\SoundMatter\ExploSimple.wav" Configuration="Release" Class="File">
+                    <Platform Name="Android">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>.\assets\internal\</RemoteDir>
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="iOSSimARM64">
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSX64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="OSXARM64">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win32">
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                    <Platform Name="Win64">
+                        <RemoteName>ExploSimple.wav</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\assets\icons\spooch-150x150.png" Configuration="Debug" Class="UWP_DelphiLogo150"/>
                 <DeployFile LocalName="..\assets\icons\spooch-44x44.png" Configuration="Debug" Class="UWP_DelphiLogo44"/>
                 <DeployFile LocalName="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\icons\debuggameicon-150x150.png" Configuration="Debug" Class="UWP_DelphiLogo150"/>
                 <DeployFile LocalName="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\icons\debuggameicon-44x44.png" Configuration="Debug" Class="UWP_DelphiLogo44"/>
                 <DeployFile LocalName="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\icons\debuggameicon.icns" Configuration="Debug" Class="ProjectOSXResource"/>
+                <DeployFile LocalName="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\icons\debuggameicon.icns" Configuration="Debug" Class="ProjectOSXResource">
+                    <Platform Name="OSXARM64">
+                        <RemoteName>Spooch.icns</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="OSXARM64\Debug\GamolfFMXGameStarterKit.dSYM" Configuration="Debug" Class="ProjectOSXDebug"/>
                 <DeployFile LocalName="OSXARM64\Debug\GamolfFMXGameStarterKit.entitlements" Configuration="Debug" Class="ProjectOSXEntitlements"/>
                 <DeployFile LocalName="OSXARM64\Debug\GamolfFMXGameStarterKit.info.plist" Configuration="Debug" Class="ProjectOSXInfoPList"/>
                 <DeployFile LocalName="OSXARM64\Debug\GamolfFMXGameStarterKit" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="OSXARM64\Debug\Spooch.dSYM" Configuration="Debug" Class="ProjectOSXDebug">
+                    <Platform Name="OSXARM64">
+                        <RemoteName>Spooch</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="OSXARM64\Debug\Spooch.entitlements" Configuration="Debug" Class="ProjectOSXEntitlements">
+                    <Platform Name="OSXARM64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="OSXARM64\Debug\Spooch.info.plist" Configuration="Debug" Class="ProjectOSXInfoPList">
+                    <Platform Name="OSXARM64">
+                        <RemoteName>Info.plist</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="OSXARM64\Debug\Spooch" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="OSXARM64">
+                        <RemoteName>Spooch</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Win32\Debug\GamolfFMXGameStarterKit.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="Win32\Debug\Spooch.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>Spooch.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
