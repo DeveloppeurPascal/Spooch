@@ -1,9 +1,9 @@
 ﻿/// <summary>
 /// ***************************************************************************
 ///
-/// Gamolf FMX Game Starter Kit
+/// Spooch
 ///
-/// Copyright 2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2021-2025 Patrick PREMARTIN under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -15,13 +15,7 @@
 ///
 /// ***************************************************************************
 ///
-/// The "Gamolf FMX Game Starter Kit" is both a "technical" example of a video
-/// game developed in Delphi with everything you need inside and a reusable
-/// project template you can customize for your own games.
-///
-/// The files provided are fully functional. Numerous comments are included in
-/// the sources to explain how they work and what you need to copy, override
-/// or customize to make video games without starting from scratch.
+/// A game developed as a FireMonkey project in Delphi.
 ///
 /// ***************************************************************************
 ///
@@ -29,24 +23,20 @@
 /// Patrick PREMARTIN
 ///
 /// Site :
-/// https://fmxgamestarterkit.developpeur-pascal.fr/
+/// https://spooch.gamolf.fr/
 ///
 /// Project site :
-/// https://github.com/DeveloppeurPascal/Gamolf-FMX-Game-Starter-Kit
+/// https://github.com/DeveloppeurPascal/Spooch
 ///
 /// ***************************************************************************
-/// File last update : 2024-08-10T09:04:46.000+02:00
-/// Signature : f0c3c44ee60074de2614de2f6cf724647eefbd89
+/// File last update : 2025-02-16T18:34:50.000+01:00
+/// Signature : 74445bb7456f37faf4d0e94e063888bcc78b5cb9
 /// ***************************************************************************
 /// </summary>
 
 unit uSceneBackground;
 
 interface
-
-{$MESSAGE WARN 'If this scene interest you save this file in your project folder and customize the copy. Don''t change the template version if you want to be able to update it.'}
-// TODO : If this scene interest you save this file in your project folder and customize the copy. Don''t change the template version if you want to be able to update it.
-// TODO : If you don't want it in your project remove the unit from your project
 
 uses
   System.SysUtils,
@@ -65,21 +55,140 @@ uses
 
 type
   TSceneBackground = class(T__SceneAncestor)
-    Rectangle1: TRectangle;
+    GameLoop: TTimer;
+    procedure FrameResized(Sender: TObject);
+    procedure GameLoopTimer(Sender: TObject);
   private
   protected
+    SpaceImage1, SpaceImage2: TRectangle;
+    SpaceImageSpeed: single;
+    procedure ResizeSpaceBackgroundImage;
   public
     procedure ShowScene; override;
+    procedure AfterConstruction; override;
+
   end;
 
 implementation
 
 {$R *.fmx}
 
-procedure TSceneBackground.ShowScene;
+uses
+  cImgSpaceBackground,
+  uConsts;
+
+procedure TSceneBackground.AfterConstruction;
 begin
   inherited;
+  SpaceImage1 := nil;
+  SpaceImage2 := nil;
+  SpaceImageSpeed := CSpaceBackgroundSpeed;
+end;
+
+procedure TSceneBackground.FrameResized(Sender: TObject);
+begin
+  ResizeSpaceBackgroundImage;
+end;
+
+procedure TSceneBackground.GameLoopTimer(Sender: TObject);
+var
+  y: single;
+begin
+  y := SpaceImage1.Position.y + SpaceImageSpeed;
+  if (y >= height) then
+    y := y - 2 * SpaceImage1.height;
+  SpaceImage1.Position.y := y;
+
+  y := SpaceImage2.Position.y + SpaceImageSpeed;
+  if (y >= height) then
+    y := y - 2 * SpaceImage2.height;
+  SpaceImage2.Position.y := y;
+end;
+
+procedure TSceneBackground.ShowScene;
+var
+  cadBackground: TcadImgSpaceBackground;
+begin
+  inherited;
+
+  cadBackground := TcadImgSpaceBackground.Create(self);
+  SpaceImage1 := cadBackground.imgBackground;
+  SpaceImage1.Parent := self;
+
+  SpaceImage2 := SpaceImage1.Clone(self) as TRectangle;
+  assert(SpaceImage2.Fill.Kind = TBrushKind.Bitmap, 'not a bitmap');
+  // try
+  // assert(SpaceImage2.Parent = SpaceImage1.Parent, 'other parent');
+  // except // TODO : create an issue on the quality portal
+  // SpaceImage2.Parent := SpaceImage1.Parent;
+  // end;
+  SpaceImage2.Parent := SpaceImage1.Parent;
+  assert(assigned(SpaceImage2.Fill.Bitmap.Bitmap), 'no bitmap');
+  assert(SpaceImage2.Fill.Bitmap.Bitmap.width = SpaceImage1.Fill.Bitmap.Bitmap.
+    width, 'not the same width');
+  assert(SpaceImage2.Fill.Bitmap.Bitmap.height = SpaceImage1.Fill.Bitmap.Bitmap.
+    height, 'not the same height');
+  assert(SpaceImage1.stroke.Kind = TBrushKind.None, 'stroke for 1');
+  assert(SpaceImage2.stroke.Kind = TBrushKind.None, 'stroke for 2');
+
+  SpaceImage1.BeginUpdate;
+  try
+    SpaceImage1.Position.x := 0;
+    SpaceImage1.Position.y := height - SpaceImage1.height;
+  finally
+    SpaceImage1.EndUpdate;
+  end;
+  SpaceImage2.BeginUpdate;
+  try
+    SpaceImage2.Position.x := 0;
+    SpaceImage2.Position.y := SpaceImage1.Position.y - SpaceImage2.height;
+  finally
+    SpaceImage2.EndUpdate;
+  end;
+
+  ResizeSpaceBackgroundImage;
+
   SendToBack;
+end;
+
+procedure TSceneBackground.ResizeSpaceBackgroundImage;
+var
+  w, h, ratio: single;
+begin
+  if (not assigned(SpaceImage1)) or (not assigned(SpaceImage2)) then
+    exit;
+
+  w := SpaceImage1.Fill.Bitmap.Bitmap.width;
+  if (w >= width) then
+    ratio := 1
+  else
+    ratio := width / w;
+
+  h := SpaceImage1.Fill.Bitmap.Bitmap.height;
+
+  // TODO : check if the image heigth is lower than the screen height
+
+  SpaceImage1.BeginUpdate;
+  try
+    SpaceImage1.width := w * ratio;
+    SpaceImage1.height := h * ratio;
+  finally
+    SpaceImage1.EndUpdate;
+  end;
+  SpaceImage2.BeginUpdate;
+  try
+    SpaceImage2.width := w * ratio;
+    SpaceImage2.height := h * ratio;
+  finally
+    SpaceImage2.EndUpdate;
+  end;
+
+  if (SpaceImage1.Position.y < SpaceImage2.Position.y) then
+    SpaceImage1.Position.y := SpaceImage2.Position.y - SpaceImage1.height
+  else
+    SpaceImage2.Position.y := SpaceImage1.Position.y - SpaceImage2.height;
+
+  SpaceImageSpeed := CSpaceBackgroundSpeed * ratio;
 end;
 
 end.

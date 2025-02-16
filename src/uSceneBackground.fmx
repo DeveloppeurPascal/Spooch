@@ -1,20 +1,10 @@
 inherited SceneBackground: TSceneBackground
   HitTest = False
-  object Rectangle1: TRectangle
-    Align = Client
-    Fill.Kind = Gradient
-    Fill.Gradient.Points = <
-      item
-        Color = claBlack
-        Offset = 0.000000000000000000
-      end
-      item
-        Color = claWhite
-        Offset = 1.000000000000000000
-      end>
-    HitTest = False
-    Size.Width = 320.000000000000000000
-    Size.Height = 240.000000000000000000
-    Size.PlatformDefault = False
+  OnResized = FrameResized
+  object GameLoop: TTimer
+    Interval = 16
+    OnTimer = GameLoopTimer
+    Left = 144
+    Top = 104
   end
 end
