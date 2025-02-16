@@ -1,12 +1,12 @@
 [submodule "lib-externes/librairies"]
 	path = lib-externes/librairies
 	url = https://github.com/DeveloppeurPascal/librairies.git
-[submodule "lib-externes/FMXGameEngine"]
-	path = lib-externes/FMXGameEngine
-	url = https://github.com/DeveloppeurPascal/FMXGameEngine.git
 [submodule "lib-externes/AboutDialog-Delphi-Component"]
 	path = lib-externes/AboutDialog-Delphi-Component
 	url = https://github.com/DeveloppeurPascal/AboutDialog-Delphi-Component.git
 [submodule "lib-externes/Gamolf-FMX-Game-Starter-Kit"]
 	path = lib-externes/Gamolf-FMX-Game-Starter-Kit
 	url = https://github.com/DeveloppeurPascal/Gamolf-FMX-Game-Starter-Kit
+[submodule "lib-externes/Delphi-Game-Engine"]
+	path = lib-externes/Delphi-Game-Engine
+	url = https://github.com/DeveloppeurPascal/Delphi-Game-Engine
