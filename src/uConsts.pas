@@ -29,8 +29,8 @@
 /// https://github.com/DeveloppeurPascal/Spooch
 ///
 /// ***************************************************************************
-/// File last update : 2025-02-16T18:34:22.000+01:00
-/// Signature : 715d28889ce270498a3be40f81fa140545ca14a9
+/// File last update : 2025-02-16T19:12:48.000+01:00
+/// Signature : 133b987fb3534a7a24e11950c2005b4b719d54b4
 /// ***************************************************************************
 /// </summary>
 
@@ -200,6 +200,11 @@ Const
   /// Speed of background space image
   /// </summary>
   CSpaceBackgroundSpeed = 5;
+
+  /// <summary>
+  /// Max number of invaders on screen at the same time
+  /// </summary>
+  CNbMaxInvader = 5;
 
 {$IF Defined(RELEASE)}
 
