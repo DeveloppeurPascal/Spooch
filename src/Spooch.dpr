@@ -29,15 +29,15 @@
 /// https://github.com/DeveloppeurPascal/Spooch
 ///
 /// ***************************************************************************
-/// File last update : 2025-02-16T16:41:40.000+01:00
-/// Signature : a0b3560c2f49e4f82efe3086669f28f1aa4ea0a8
+/// File last update : 2025-02-16T20:21:44.000+01:00
+/// Signature : 1788d3789ecaf0dd7b0be8f69f4f64b75b8bf231
 /// ***************************************************************************
 /// </summary>
 
 program Spooch;
 
 uses
-  System.StartUpCopy,
+  FMX.Types,
   FMX.Forms,
   FMX.Skia,
   fMain in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\fMain.pas' {frmMain},
@@ -77,16 +77,23 @@ uses
   uSoundEffects in 'uSoundEffects.pas',
   USVGInputPrompts in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\kenney_nl\InputPrompts\USVGInputPrompts.pas',
   uDMGameControllerCenter in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMGameControllerCenter.pas' {DMGameControllerCenter: TDataModule},
-  uSVGBitmapManager_InputPrompts in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uSVGBitmapManager_InputPrompts.pas',
+  uSVGBitmapManager_InputPrompts in 'uSVGBitmapManager_InputPrompts.pas',
   uDMHelpBarManager in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMHelpBarManager.pas' {HelpBarManager: TDataModule},
   _ButtonsAncestor in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\_ButtonsAncestor.pas' {__ButtonAncestor: TFrame},
   uSceneBackground in 'uSceneBackground.pas' {SceneBackground: TFrame},
-  cImgSpaceBackground in '..\_PRIVATE\src\cImgSpaceBackground.pas' {cadImgSpaceBackground: TFrame};
+  cImgSpaceBackground in '..\_PRIVATE\src\cImgSpaceBackground.pas' {cadImgSpaceBackground: TFrame},
+  USVGKenneyShips in '..\assets\Kenney_nl\USVGKenneyShips.pas',
+  uClasses in 'uClasses.pas',
+  cSpritesheetExplosion in '..\_PRIVATE\assets\OpenGameArt_Org\cSpritesheetExplosion.pas' {cadSpritesheetExplosion: TFrame};
 
 {$R *.res}
 
 begin
   GlobalUseSkia := True;
+  GlobalUseSkiaRasterWhenAvailable := False;
+  {$IF Defined(MACOS) or Defined(IOS)}
+  GlobalUseMetal := True;
+  {$ENDIF}
   Application.Initialize;
   Application.FormFactor.Orientations := [TFormOrientation.Landscape, TFormOrientation.InvertedLandscape];
   Application.CreateForm(TfrmMain, frmMain);

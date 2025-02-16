@@ -631,12 +631,10 @@
         </DelphiCompile>
         <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\fMain.pas">
             <Form>frmMain</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="..\lib-externes\AboutDialog-Delphi-Component\src\Olf.FMX.AboutDialog.pas"/>
         <DCCReference Include="..\lib-externes\AboutDialog-Delphi-Component\src\Olf.FMX.AboutDialogForm.pas">
             <Form>OlfAboutDialogForm</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="..\lib-externes\librairies\src\u_urlOpen.pas"/>
         <DCCReference Include="uConsts.pas"/>
@@ -646,12 +644,10 @@
         <DCCReference Include="..\lib-externes\librairies\src\Olf.Skia.SVGToBitmap.pas"/>
         <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMAboutBox.pas">
             <Form>AboutBox</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="uDMAboutBoxLogoStorrage.pas">
             <Form>dmAboutBoxLogo</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="uTxtAboutLicense.pas"/>
@@ -672,7 +668,6 @@
         <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uConfig.pas"/>
         <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\_ScenesAncestor.pas">
             <Form>__SceneAncestor</Form>
-            <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uScene.pas"/>
@@ -685,28 +680,29 @@
         <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\kenney_nl\InputPrompts\USVGInputPrompts.pas"/>
         <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMGameControllerCenter.pas">
             <Form>DMGameControllerCenter</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uSVGBitmapManager_InputPrompts.pas"/>
+        <DCCReference Include="uSVGBitmapManager_InputPrompts.pas"/>
         <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMHelpBarManager.pas">
             <Form>HelpBarManager</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\_ButtonsAncestor.pas">
             <Form>__ButtonAncestor</Form>
-            <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="uSceneBackground.pas">
             <Form>SceneBackground</Form>
-            <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\_PRIVATE\src\cImgSpaceBackground.pas">
             <Form>cadImgSpaceBackground</Form>
-            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\assets\Kenney_nl\USVGKenneyShips.pas"/>
+        <DCCReference Include="uClasses.pas"/>
+        <DCCReference Include="..\_PRIVATE\assets\OpenGameArt_Org\cSpritesheetExplosion.pas">
+            <Form>cadSpritesheetExplosion</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
