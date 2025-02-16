@@ -29,8 +29,8 @@
 /// https://github.com/DeveloppeurPascal/Spooch
 ///
 /// ***************************************************************************
-/// File last update : 2025-02-16T18:34:50.000+01:00
-/// Signature : 74445bb7456f37faf4d0e94e063888bcc78b5cb9
+/// File last update : 2025-02-16T20:14:06.000+01:00
+/// Signature : ecfa66bdf7e8d0efcf815b8954e7aa5796f9c025
 /// ***************************************************************************
 /// </summary>
 
@@ -63,6 +63,7 @@ type
     SpaceImage1, SpaceImage2: TRectangle;
     SpaceImageSpeed: single;
     procedure ResizeSpaceBackgroundImage;
+    procedure AddAnInvader;
   public
     procedure ShowScene; override;
     procedure AfterConstruction; override;
@@ -75,7 +76,17 @@ implementation
 
 uses
   cImgSpaceBackground,
-  uConsts;
+  uConsts,
+  uClasses,
+  uGameData;
+
+procedure TSceneBackground.AddAnInvader;
+var
+  Mechant: TMechant;
+begin
+  Mechant := TMechant.Create(self);
+  Mechant.Initialise(self);
+end;
 
 procedure TSceneBackground.AfterConstruction;
 begin
@@ -93,7 +104,11 @@ end;
 procedure TSceneBackground.GameLoopTimer(Sender: TObject);
 var
   y: single;
+  MissileJoueur: TMissileJoueur;
+  MissileEnnemi: TMissileMechant;
+  Mechant: TMechant;
 begin
+  // Move the space background
   y := SpaceImage1.Position.y + SpaceImageSpeed;
   if (y >= height) then
     y := y - 2 * SpaceImage1.height;
@@ -103,6 +118,31 @@ begin
   if (y >= height) then
     y := y - 2 * SpaceImage2.height;
   SpaceImage2.Position.y := y;
+
+  // Move the player
+  if tgamedata.DefaultGameData.IsPlaying then
+  begin
+    // TODO :   JoueurX := JoueurX + JoueurVX;
+  end;
+
+  // Move the player's missiles
+  if MissileJoueurList.count > 0 then
+    for MissileJoueur in MissileJoueurList do
+      MissileJoueur.Deplace;
+
+  // Move the invaders missiles
+  if MissileMechantList.count > 0 then
+    for MissileEnnemi in MissileMechantList do
+      MissileEnnemi.Deplace;
+
+  // Add invaders if we don't have enough on the screen
+  if (random(100) < 50) and (MechantsList.count < CNbMaxInvader) then
+    AddAnInvader;
+
+  // Move the invaders
+  if MechantsList.count > 0 then
+    for Mechant in MechantsList do
+      Mechant.Deplace;
 end;
 
 procedure TSceneBackground.ShowScene;
