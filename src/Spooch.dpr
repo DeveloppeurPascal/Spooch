@@ -29,8 +29,8 @@
 /// https://github.com/DeveloppeurPascal/Spooch
 ///
 /// ***************************************************************************
-/// File last update : 2025-02-16T15:56:04.000+01:00
-/// Signature : 4889eff38efa2f71687841625dff9a0b8fd33d73
+/// File last update : 2025-02-16T16:41:40.000+01:00
+/// Signature : a0b3560c2f49e4f82efe3086669f28f1aa4ea0a8
 /// ***************************************************************************
 /// </summary>
 
@@ -80,7 +80,8 @@ uses
   uSVGBitmapManager_InputPrompts in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uSVGBitmapManager_InputPrompts.pas',
   uDMHelpBarManager in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMHelpBarManager.pas' {HelpBarManager: TDataModule},
   _ButtonsAncestor in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\_ButtonsAncestor.pas' {__ButtonAncestor: TFrame},
-  uSceneBackground in 'uSceneBackground.pas' {SceneBackground: TFrame};
+  uSceneBackground in 'uSceneBackground.pas' {SceneBackground: TFrame},
+  cImgSpaceBackground in '..\_PRIVATE\src\cImgSpaceBackground.pas' {cadImgSpaceBackground: TFrame};
 
 {$R *.res}
 
