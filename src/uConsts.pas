@@ -29,8 +29,8 @@
 /// https://github.com/DeveloppeurPascal/Spooch
 ///
 /// ***************************************************************************
-/// File last update : 2025-02-16T16:21:40.000+01:00
-/// Signature : 4139cea93f0fb9cef41e96a8baf7e61c69c4b933
+/// File last update : 2025-02-16T18:34:22.000+01:00
+/// Signature : 715d28889ce270498a3be40f81fa140545ca14a9
 /// ***************************************************************************
 /// </summary>
 
@@ -195,6 +195,11 @@ Const
   /// Change it to an other scene, like a game intro or a splashscreen
   /// </remarks>
   CDefaultSceneOnStartup = TSceneType.Home;
+
+  /// <summary>
+  /// Speed of background space image
+  /// </summary>
+  CSpaceBackgroundSpeed = 5;
 
 {$IF Defined(RELEASE)}
 
