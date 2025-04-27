@@ -1,0 +1,14 @@
+object cadTitle: TcadTitle
+  Size.Width = 320.000000000000000000
+  Size.Height = 150.000000000000000000
+  Size.PlatformDefault = False
+  OnResized = FrameResized
+  inline OlfFMXTextImageFrame1: TOlfFMXTextImageFrame
+    Align = Center
+    Locked = True
+    HitTest = False
+    Size.Width = 320.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+  end
+end
