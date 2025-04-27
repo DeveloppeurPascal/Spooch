@@ -84,7 +84,15 @@ uses
   cImgSpaceBackground in '..\_PRIVATE\src\cImgSpaceBackground.pas' {cadImgSpaceBackground: TFrame},
   USVGKenneyShips in '..\assets\Kenney_nl\USVGKenneyShips.pas',
   uClasses in 'uClasses.pas',
-  cSpritesheetExplosion in '..\_PRIVATE\assets\OpenGameArt_Org\cSpritesheetExplosion.pas' {cadSpritesheetExplosion: TFrame};
+  cSpritesheetExplosion in '..\_PRIVATE\assets\OpenGameArt_Org\cSpritesheetExplosion.pas' {cadSpritesheetExplosion: TFrame},
+  udmAdobeStock_311048871 in '..\_PRIVATE\assets\AdobeStock\AdobeStock_311048871\udmAdobeStock_311048871.pas' {dmAdobeStock_311048871: TDataModule},
+  udmAdobeStock_329627820 in '..\_PRIVATE\assets\AdobeStock\AdobeStock_329627820\udmAdobeStock_329627820.pas' {dmAdobeStock_329627820: TDataModule},
+  udmAdobeStock_377613666 in '..\_PRIVATE\assets\AdobeStock\AdobeStock_377613666\udmAdobeStock_377613666.pas' {dmAdobeStock_377613666: TDataModule},
+  cTextButton in 'cTextButton.pas' {cadTextButton: TFrame},
+  Olf.FMX.TextImageFrame in '..\lib-externes\librairies\src\Olf.FMX.TextImageFrame.pas' {OlfFMXTextImageFrame: TFrame},
+  cTitle in 'cTitle.pas' {cadTitle: TFrame},
+  fHomeScene in 'fHomeScene.pas' {SceneHome: TFrame},
+  uSpoochGameData in 'uSpoochGameData.pas';
 
 {$R *.res}
 
@@ -98,5 +106,8 @@ begin
   Application.FormFactor.Orientations := [TFormOrientation.Landscape, TFormOrientation.InvertedLandscape];
   Application.CreateForm(TfrmMain, frmMain);
   Application.CreateForm(TDMGameControllerCenter, DMGameControllerCenter);
+  Application.CreateForm(TdmAdobeStock_311048871, dmAdobeStock_311048871);
+  Application.CreateForm(TdmAdobeStock_329627820, dmAdobeStock_329627820);
+  Application.CreateForm(TdmAdobeStock_377613666, dmAdobeStock_377613666);
   Application.Run;
 end.
