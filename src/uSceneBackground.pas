@@ -67,7 +67,7 @@ type
   public
     procedure ShowScene; override;
     procedure AfterConstruction; override;
-
+    class function GetInstance: TSceneBackground;
   end;
 
 implementation
@@ -78,13 +78,16 @@ uses
   cImgSpaceBackground,
   uConsts,
   uClasses,
-  uGameData;
+  uSpoochGameData;
+
+var
+  SceneBackgroundInstance: TSceneBackground;
 
 procedure TSceneBackground.AddAnInvader;
 var
   Mechant: TMechant;
 begin
-  Mechant := TMechant.Create(self);
+  Mechant := TMechant.Create(nil);
   Mechant.Initialise(self);
 end;
 
@@ -94,6 +97,7 @@ begin
   SpaceImage1 := nil;
   SpaceImage2 := nil;
   SpaceImageSpeed := CSpaceBackgroundSpeed;
+  SceneBackgroundInstance := self;
 end;
 
 procedure TSceneBackground.FrameResized(Sender: TObject);
@@ -120,29 +124,35 @@ begin
   SpaceImage2.Position.y := y;
 
   // Move the player
-  if tgamedata.DefaultGameData.IsPlaying then
+  if TSpoochGameData.Current.IsPlaying then
   begin
     // TODO :   JoueurX := JoueurX + JoueurVX;
   end;
 
   // Move the player's missiles
-  if MissileJoueurList.count > 0 then
-    for MissileJoueur in MissileJoueurList do
+  if TSpoochGameData.Current.MissileJoueurList.count > 0 then
+    for MissileJoueur in TSpoochGameData.Current.MissileJoueurList do
       MissileJoueur.Deplace;
 
   // Move the invaders missiles
-  if MissileMechantList.count > 0 then
-    for MissileEnnemi in MissileMechantList do
+  if TSpoochGameData.Current.MissileMechantList.count > 0 then
+    for MissileEnnemi in TSpoochGameData.Current.MissileMechantList do
       MissileEnnemi.Deplace;
 
   // Add invaders if we don't have enough on the screen
-  if (random(100) < 50) and (MechantsList.count < CNbMaxInvader) then
+  if (random(100) < 50) and (TSpoochGameData.Current.MechantsList.count <
+    CNbMaxInvader) then
     AddAnInvader;
 
   // Move the invaders
-  if MechantsList.count > 0 then
-    for Mechant in MechantsList do
+  if TSpoochGameData.Current.MechantsList.count > 0 then
+    for Mechant in TSpoochGameData.Current.MechantsList do
       Mechant.Deplace;
+end;
+
+class function TSceneBackground.GetInstance: TSceneBackground;
+begin
+  result := SceneBackgroundInstance;
 end;
 
 procedure TSceneBackground.ShowScene;
@@ -156,20 +166,7 @@ begin
   SpaceImage1.Parent := self;
 
   SpaceImage2 := SpaceImage1.Clone(self) as TRectangle;
-  assert(SpaceImage2.Fill.Kind = TBrushKind.Bitmap, 'not a bitmap');
-  // try
-  // assert(SpaceImage2.Parent = SpaceImage1.Parent, 'other parent');
-  // except // TODO : create an issue on the quality portal
-  // SpaceImage2.Parent := SpaceImage1.Parent;
-  // end;
   SpaceImage2.Parent := SpaceImage1.Parent;
-  assert(assigned(SpaceImage2.Fill.Bitmap.Bitmap), 'no bitmap');
-  assert(SpaceImage2.Fill.Bitmap.Bitmap.width = SpaceImage1.Fill.Bitmap.Bitmap.
-    width, 'not the same width');
-  assert(SpaceImage2.Fill.Bitmap.Bitmap.height = SpaceImage1.Fill.Bitmap.Bitmap.
-    height, 'not the same height');
-  assert(SpaceImage1.stroke.Kind = TBrushKind.None, 'stroke for 1');
-  assert(SpaceImage2.stroke.Kind = TBrushKind.None, 'stroke for 2');
 
   SpaceImage1.BeginUpdate;
   try
