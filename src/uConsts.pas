@@ -51,7 +51,7 @@ const
   /// <summary>
   /// Version date of your game, change it when you publish a new public release
   /// </summary>
-  CAboutVersionDate = '20250216';
+  CAboutVersionDate = '20250427';
 
   /// <summary>
   /// Title of your game used in the About box and as the main form caption
