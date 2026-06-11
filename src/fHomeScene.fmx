@@ -47,6 +47,18 @@ inherited SceneHome: TSceneHome
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
         OnClick = btnContinueClick
+        inherited rBackUp: TRectangle
+          inherited txtUp: TOlfFMXTextImageFrame
+            Size.Width = 284.000000000000000000
+            Size.Height = 40.000000000000000000
+          end
+        end
+        inherited rBackDown: TRectangle
+          inherited txtDown: TOlfFMXTextImageFrame
+            Size.Width = 284.000000000000000000
+            Size.Height = 40.000000000000000000
+          end
+        end
       end
       inline btnPlay: TcadTextButton
         Margins.Left = 5.000000000000000000
@@ -59,6 +71,18 @@ inherited SceneHome: TSceneHome
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
         OnClick = btnPlayClick
+        inherited rBackUp: TRectangle
+          inherited txtUp: TOlfFMXTextImageFrame
+            Size.Width = 284.000000000000000000
+            Size.Height = 40.000000000000000000
+          end
+        end
+        inherited rBackDown: TRectangle
+          inherited txtDown: TOlfFMXTextImageFrame
+            Size.Width = 284.000000000000000000
+            Size.Height = 40.000000000000000000
+          end
+        end
       end
       inline btnOptions: TcadTextButton
         Margins.Left = 5.000000000000000000
@@ -71,6 +95,18 @@ inherited SceneHome: TSceneHome
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
         OnClick = btnOptionsClick
+        inherited rBackUp: TRectangle
+          inherited txtUp: TOlfFMXTextImageFrame
+            Size.Width = 284.000000000000000000
+            Size.Height = 40.000000000000000000
+          end
+        end
+        inherited rBackDown: TRectangle
+          inherited txtDown: TOlfFMXTextImageFrame
+            Size.Width = 284.000000000000000000
+            Size.Height = 40.000000000000000000
+          end
+        end
       end
       inline btnHallOfFame: TcadTextButton
         Margins.Left = 5.000000000000000000
@@ -83,6 +119,18 @@ inherited SceneHome: TSceneHome
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
         OnClick = btnHallOfFameClick
+        inherited rBackUp: TRectangle
+          inherited txtUp: TOlfFMXTextImageFrame
+            Size.Width = 284.000000000000000000
+            Size.Height = 40.000000000000000000
+          end
+        end
+        inherited rBackDown: TRectangle
+          inherited txtDown: TOlfFMXTextImageFrame
+            Size.Width = 284.000000000000000000
+            Size.Height = 40.000000000000000000
+          end
+        end
       end
       inline btnCredits: TcadTextButton
         Margins.Left = 5.000000000000000000
@@ -95,6 +143,18 @@ inherited SceneHome: TSceneHome
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
         OnClick = btnCreditsClick
+        inherited rBackUp: TRectangle
+          inherited txtUp: TOlfFMXTextImageFrame
+            Size.Width = 284.000000000000000000
+            Size.Height = 40.000000000000000000
+          end
+        end
+        inherited rBackDown: TRectangle
+          inherited txtDown: TOlfFMXTextImageFrame
+            Size.Width = 284.000000000000000000
+            Size.Height = 40.000000000000000000
+          end
+        end
       end
       inline btnQuit: TcadTextButton
         Margins.Left = 5.000000000000000000
@@ -107,6 +167,18 @@ inherited SceneHome: TSceneHome
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
         OnClick = btnQuitClick
+        inherited rBackUp: TRectangle
+          inherited txtUp: TOlfFMXTextImageFrame
+            Size.Width = 284.000000000000000000
+            Size.Height = 40.000000000000000000
+          end
+        end
+        inherited rBackDown: TRectangle
+          inherited txtDown: TOlfFMXTextImageFrame
+            Size.Width = 284.000000000000000000
+            Size.Height = 40.000000000000000000
+          end
+        end
       end
     end
   end
