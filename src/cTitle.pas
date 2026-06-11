@@ -57,8 +57,8 @@ type
     OlfFMXTextImageFrame1: TOlfFMXTextImageFrame;
     procedure FrameResized(Sender: TObject);
   private
-    procedure AfterConstruction; override;
   public
+    procedure AfterConstruction; override;
   end;
 
 implementation
