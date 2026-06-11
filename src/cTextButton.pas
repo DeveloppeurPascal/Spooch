@@ -67,13 +67,13 @@ type
     txtDown: TOlfFMXTextImageFrame;
     txtUp: TOlfFMXTextImageFrame;
   private
-    procedure Repaint; override;
   protected
     function GetImageIndexOfUnknowChar(Sender: TOlfFMXTextImageFrame;
       AChar: char): integer;
   public
     procedure AfterConstruction; override;
     constructor Create(AOwner: TComponent); override;
+    procedure Repaint; override;
   end;
 
 implementation
