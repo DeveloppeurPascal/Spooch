@@ -244,19 +244,6 @@ begin
 end;
 
 initialization
-
-TMessageManager.DefaultManager.SubscribeToMessage(TSceneFactory,
-  procedure(const Sender: TObject; const Msg: TMessage)
-  var
-    NewScene: TSceneHome;
-  begin
-    if (Msg is TSceneFactory) and
-      ((Msg as TSceneFactory).SceneType = TSceneType.Home) then
-    begin
-      NewScene := TSceneHome.Create(application.mainform);
-      NewScene.Parent := application.mainform;
-      tscene.RegisterScene(TSceneType.Home, NewScene);
-    end;
-  end);
-
+  tscene.RegisterScene<TSceneHome>(TSceneType.Home);
 end.
+
