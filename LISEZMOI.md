@@ -12,7 +12,7 @@
 > [!NOTE]
 > Pour ouvrir ou intervenir sur un ticket de ce projet, rendez-vous sur https://codeberg.org/Gamolf/Spooch/issues
 > Pour faire un PULL REQUEST sur ce projet, rendez-vous sur https://codeberg.org/Gamolf/Spooch/pulls
-> Pour toute autre information ou me contacter vous pouvez aussi consulter le site Internet du projet sur YYYYYYYYYYYYY ou son devlog sur ZZZZZZZZZZ
+> Pour toute autre information ou me contacter vous pouvez aussi consulter le site Internet du projet sur https://spooch.gamolf.fr ou son devlog sur https://developpeur-pascal.fr/spooch.html
 > Ce dépôt de code sera archivé une fois la migration terminée et ne bénéficiera plus de mise à jour sur GitHub.
 
 [Spooch](https://spooch.gamolf.fr/) est un jeu vidéo développé sous Delphi dans un projet FireMonkey: parcourrez l'espace en évitant les tirs et vaisseaux enemis.
